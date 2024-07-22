@@ -1,8 +1,11 @@
 const { findUserById } = require('../repositories/userRepository');
 
 exports.getUserProfile = async (req, res) => {
+
   try {
+    
     const user = await findUserById(req.user.id);
+
     if (user) {
       res.json({
         username: user.username,

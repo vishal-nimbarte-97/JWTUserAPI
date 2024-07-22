@@ -24,7 +24,10 @@ exports.login = async (req, res) => {
   try {
     const { username, password } = req.body;
     const user = await findUserByUsername(username);
-    if (user && await bcrypt.compare(password, user.password)) {
+    if (user && await bcrypt.compare(password, user.password)) 
+    {
+      // console.log(password);
+      // console.log(user.password);
       const token = jwt.sign({ id: user.id }, "JWT_SECRET", { expiresIn: '300s' });
       res.json({ token });
     } else {

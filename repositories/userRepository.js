@@ -22,6 +22,7 @@ const findUserById = async (id) => {
   } catch (error) {
     throw new Error(error.message);
   }
+  
 };
 
 module.exports = { createUser, findUserByUsername, findUserById };
